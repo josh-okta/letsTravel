@@ -20,7 +20,7 @@ To integrate Okta's Identity Platform for user authentication, you'll first need
 You will need to create an application in Okta:
 
 * Log in to your Okta account, then navigate to **Applications** and click the **Add Application** button
-* Select **Web** and click **Next**
+* Select **Web** and **OIDC** click **Next**
 * Give your application a name (e.g. "Simple Node Authentication")
 * Change the **Base URI** to `http://localhost:3000` and the **Login redirect URI** to `http://localhost:3000/authorization-code/callback`, then click **Done**
 * Save your **client ID** and **client secret** for later
@@ -36,7 +36,7 @@ Now create a file called `.env` in the project root and add the following variab
 
 ```bash
 PORT=3000
-ISSUER=okta-authorization-server-issure-uri
+ISSUER=https://[YOUR_OKTA_DOMAIN]
 CLIENT_ID=okta-application-client-id
 CLIENT_SECRET=okta-application-client-secret
 REDIRECT_URI=http://localhost:3000/authorization-code/callback
@@ -59,7 +59,9 @@ Everybody who is in the `travelAdmin` group will alter be able to access the `Ad
 #### Custom authorization settings (scopes and claims)
 
 The app also assumes that the authorization server has the custom scopes `travelSettings` and `travelAdmin`. Go to **Security > API > yourAuthServer > Scopes** and **Add Scope** the custom scopes `travelAdmin` and `travelSettings`.  
-To to **Claims** and **Add Claim** the custom claims `MFA`, `terms` and `travelGroups`. For the claim `MFA` and `terms` choose `ID Token`, value `user.mfa` and add to the scope `travelSettings`. For the claim `travelGroups` choose `ID token`, value type `Groups`, value `Starts with travel` and add to the scope `travelAdmin`. 
+Go to **Claims** and **Add Claim** the custom claims `MFA`, `terms` and `travelGroups`. 
+* For the claim `MFA` and `terms` choose `ID Token`, value `user.mfa` and add to the scope `travelSettings`. 
+* For the claim `travelGroups` choose `ID token`, value type `Groups`, value `Starts with travel` and add to the scope `travelAdmin`. 
 
 ### Run
 

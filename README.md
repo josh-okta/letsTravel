@@ -66,7 +66,7 @@ Go to **Claims** and **Add Claim** the custom claims `MFA`, `terms` and `travelG
 #### Add CORS Origin
 Go to **Security > API**
 * Click on the Trusted Origins MFA
-* * Add Origin URL (http://localhost)
+* * Add Origin URL (http://localhost:3000)
 * * Enable **CORS** and **Redirect**
 
 ### Run

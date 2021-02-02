@@ -63,6 +63,12 @@ Go to **Claims** and **Add Claim** the custom claims `MFA`, `terms` and `travelG
 * For the claim `MFA` and `terms` choose `ID Token`, value `user.mfa` and add to the scope `travelSettings`. 
 * For the claim `travelGroups` choose `ID token`, value type `Groups`, value `Starts with travel` and add to the scope `travelAdmin`. 
 
+#### Add CORS Origin
+Go to **Security > API**
+* Click on the Trusted Origins MFA
+* * Add Origin URL (http://localhost)
+* * Enable **CORS** and **Redirect**
+
 ### Run
 
 To run this app Docker and Docker-Compose is required. 
